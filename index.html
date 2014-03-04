@@ -158,7 +158,7 @@ layout: main
     </tr>
     <tr>
       <td>
-  { "name" : "string", "age" : "int" }
+  { "name" : "@string", "age" : "@int" }
       </td>
       <td>
   { "name" : "Joe", "age" : 42 }
@@ -167,8 +167,8 @@ layout: main
     <tr>
       <td>
     { "people" : [ 
-      { "name" : "string", 
-        "age" : "int"} ] }
+      { "name" : "@string", 
+        "age" : "@int"} ] }
       </td>
       <td>
   { "people" : [
@@ -179,9 +179,9 @@ layout: main
     </tr>
     <tr>
       <td>
-        { "people" : [ { "name" : "string", 
-        "age" : "int",
-        "eye_color" : {"enum" : ["brown", 
+        { "people" : [ { "name" : "@string", 
+        "age" : "@int",
+        "eye_color" : {"@enum" : ["brown", 
         "blue", 
         "green"]}} ] }
       </td>
@@ -194,10 +194,8 @@ layout: main
     </tr>
     <tr>
       <td>
-        { "id_to_people" : {
-          "map_of" : { "name" : "string", 
-          "age" : "int",
-          "eye_color" : {"enum" : ["brown", 
+        { "@map" : { "name" : "@string", "age" : "@int",
+          "eye_color" : {"@enum" : ["brown", 
           "blue", 
           "green"]}
         }
@@ -205,8 +203,7 @@ layout: main
     }
   </td>
   <td>
-    { "id_to_people" : {
-      "1" : { "name" : "Joe", "age" : 42, "eye_color" : "brown" },
+    { "1" : { "name" : "Joe", "age" : 42, "eye_color" : "brown" },
       "2" : { "name" : "Paul", "age" : 28, "eye_color" : "brown" },
       "3" : { "name" : "Mack", "age" : 55, "eye_color" : "blue" }
     }
