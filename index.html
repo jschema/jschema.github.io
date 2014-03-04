@@ -38,7 +38,7 @@ layout: main
     <a href="#object_type">'"@object"'</a>
 
   <a href="#array_type">&lt;array_type></a> ::= 
-    '[' type ']'
+    '[' &lt;type> ']'
 
   <a href="#enum_type">&lt;enum_type></a> ::= 
     '{' '"@enum"' ':' '[' &lt;enum_values> ']' '}'
@@ -136,7 +136,7 @@ layout: main
 
   <h2>Schema URL and File Conventions</h2>
   <p>
-    Assuming JSON content matching a given JSchema is available at <code>http://example.com/path</code> then the JSchema should be available at <code>http://example.com/path?jschema=true</code>
+    Assuming JSON content matching a given JSchema is available at <code>http://example.com/path</code> then the JSchema should be available at <code>http://example.com/path?jschema</code>
   </p>
   <p>
     JSchema files should end with the <code>.jschema</code> file suffix.
