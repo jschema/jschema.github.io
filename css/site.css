@@ -1,0 +1,47 @@
+.header {
+	background-color: #F5F5F5;
+	border-top: 1px solid #F5F5F5;
+	border-bottom: 1px solid #d3d3d3;
+}
+
+h1 {
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    font-size: 50px;
+    line-height: 65px;
+}
+
+h2, h3, h4 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight:bold;
+}
+
+h3 {
+	font-size:20px;
+}
+ 
+p, ul {
+    font-family:  Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+a {
+	font-weight: bold;
+}
+
+.examples-table td {
+	white-space:pre;
+}
+
+.first-curly {
+	position: relative;
+	left:-4px;
+	top:-8px;
+	color:#2B547E;
+}
+.second-curly {
+	position: relative;
+	left:4px;
+	top:8px;
+	color:#625D5D;
+}
