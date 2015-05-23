@@ -1,0 +1,164 @@
+<html>
+  <head>
+    <title>JSchema-RPC</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>  
+  <body>
+    <center>
+      <h1>JSchema-RPC</h1>
+      <p><i>"The enemy of art is the absence of limitations."</i></p>
+      <p>&nbsp;</p>
+    </center>
+    <h2>Introduction</h2>
+    <p>
+      To complement <a href="/">JSchema</a>, JSchema-RPC is a way to specify a RPC end point using JSON.
+    </p>
+    <h2>RPC URL Convention and File Conventions</h2>
+    <p>
+      Given an end point at: <pre>http://example.com/path/</pre> The JSchema-RPC should be available at: <pre>http://example.com/path/?JSchema-RPC</pre>
+    </p>
+    <p>
+      Locally, JSchema-RPC files should end with the <code>.jsc-rpc</code> file suffix.
+    </p>
+    <h2>Grammar</h2>
+    <p>
+      The grammar for a JSchema-RPC file builds on the grammar for JSchema and JSON:
+    <pre>
+&lt;rpc> ::= 
+    '{'
+      '"url"' ':' &lt;string> 
+      &lt;optional_description>
+      &lt;optional_typedefs>
+      '"functions"' ':' '[' &lt;function_specs> ']'
+    '}'
+  
+&lt;optional_description>
+    '' |
+    ',' '"description"' ':' &lt;string> ',' 
+
+&lt;optional_typedefs>
+    '' |
+    ',' &lt;typedefs_map>
+
+&lt;function_specs> ::= 
+    '' |
+    &lt;function_spec> | 
+    &lt;function_spec> ',' &lt;function_specs> 
+
+&lt;function_spec> ::= 
+    '{' '"name"' ':' &lt;string>
+      &lt;optional_description>
+      &lt;optional_args_spec>
+      &lt;optional_return_type>
+    '}'
+
+&lt;optional_args_spec> ::=
+    '' |
+    ',' '"args"' ':' '[' &lt;arg_specs> ']'
+
+&lt;arg_specs> ::=
+    '' |
+    &lt;arg_spec> |
+    &lt;arg_spec> ',' &lt;arg_specs>
+  
+&lt;arg_spec> ::=
+  '{' &lt;string> ':' &lt;type> &lt;optional_default> &lt;optional_description> '}'
+
+&lt;optional_default> ::=
+  ',' '"default"' ':' &lt;object> |
+  ''
+&lt;optional_return_type> ::=
+    ',' '"returns"' ':' &lt;type> |
+    ''
+    </pre>
+  <h2>Implementation Notes</h2>
+  <ul>
+    <li>All functions must have unique names.</li>
+    <li>Note that arguments and return values are not necessarily JSON documents: they may be JSON document fragments corresponding to JSchema types.</li>
+    <li>If a function does not specify a return value, it is interpreted as being a 'void' function.</li>
+    <li>If a function does not specify an argument list, it is interpreted as having no arguments.</li>
+    <li>The 'self' type is not supported in JSchema-RPC files.</li>
+    <li>JSchema-RPC is explicitly silent on things like authentication, which should be handled at the protocol or application level.</li>
+  </ul>
+  <h2>Invocation</h2>
+  <p>
+    Given a JSchema-RPC Document and a function specification, invocation of the function is done as follows:
+  </p>
+  <ul>
+    <li>The "name" of the function will be appended to the "url" (or a different URL if the user has specified one) using the separator appropriate for the protocol</li>
+    <li>The arguments will be passed by name in a manner appropriate for the scheme specified in the composed URL.  In the case of http/https, this will be either as a query string or as post variables as a GET or POST, respectively.  If an argument is not included it will be interpreted as 'null' unless a default value is specified.</li>
+    <li>The return content will conform to the type specified as the "return_type" unless an exception is returned, in which case it will conform to the grammar specified in the "Exceptions" section.</li>
+  </ul>
+  <h2>Exceptions</h2>
+  <p>
+    Exceptions may be raised by a JSchema-RPC end point using a return value of the following form:
+    <pre>
+&lt;jschema_rpc_exception> ::= 
+  '{'
+    '"exception@"' ':' &lt;string> &lt;optional_type> &lt;optional_trace>
+  '}'
+
+&lt;optional_type> ::=  
+  '' | 
+  ',' '"exception_type@"' ':' &lt;string>    
+
+&lt;optional_trace> ::=  
+  '' | 
+  ',' '"trace@"' ':' &lt;string>    
+</pre>
+    End point creators should strive to provide useful traces, including elements only relevant to the remote procedure, rather than implementation details of the invocation.
+  </p>
+  <p>
+    The optional 'exception_type@' element is only a hint to the client.  Client implementations should make a best effort to produce an equivalent exception on their side, but there are no guarantees regarding the type of exception produced.
+  </p>
+  <h2>Examples</h2>
+  <table class="examples-table">
+    <tr>
+      <th>
+        JSchema-RPC File
+      </th>
+      <th>
+        Example usage (Gosu)
+      </th>
+    </tr>
+    <tr>
+      <td>
+{ "url" : "http://myserver:8080/employees",
+  "description" : "Methods for manipulating employees",
+  "typedefs@" : {
+    "Employee" : {
+      "first_name" : "string",
+      "last_name" : "string",
+      "age" : "int",
+      "id" : "int"
+    }
+  },
+  "functions" : [
+    { "name" : "getEmployee",
+      "description" : "Returns the employee with the given id",
+      "args" : [ {"id" : "int" } ],
+      "returns" : "Employee"
+    },
+    { "name" : "updateEmployee",
+      "description" : "Updates the given employee",
+      "args" : [ { "employee" : "Employee" } ],
+      "returns" : "boolean"
+    }
+  ]
+}
+      </td>
+      <td>
+// Assuming the above file is in EmployeesApi.jsc-rpc:
+
+var myEmp = EmployeesApi.getEmployee(42)
+
+myEmp.Age++
+
+if( EmployeesApi.updateEmployee(myEmp) ) {
+  print( "Updated the age of ${myEmp.FirstName}")
+}
+      </td>
+    </tr>
+  <table>
+  </body>
+</html>

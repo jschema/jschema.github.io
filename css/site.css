@@ -1,47 +1,57 @@
 .header {
-	background-color: #F5F5F5;
-	border-top: 1px solid #F5F5F5;
-	border-bottom: 1px solid #d3d3d3;
+  background-color: #F5F5F5;
+  border-top: 1px solid #F5F5F5;
+  border-bottom: 1px solid #d3d3d3;
 }
 
 h1 {
-    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
-    font-size: 50px;
-    line-height: 65px;
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  font-size: 50px;
+  line-height: 65px;
+}
+
+h1 sub {
+  font-size: 16px;
 }
 
 h2, h3, h4 {
   font-family: Helvetica, Arial, sans-serif;
-  font-weight:bold;
+  font-weight: bold;
 }
 
 h3 {
-	font-size:20px;
+  font-size: 20px;
 }
- 
+
 p, ul {
-    font-family:  Helvetica, Arial, sans-serif;
-    font-size: 18px;
-    line-height: 28px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  line-height: 28px;
 }
 
 a {
-	font-weight: bold;
+  font-weight: bold;
 }
 
 .examples-table td {
-	white-space:pre;
+  white-space: pre;
 }
 
 .first-curly {
-	position: relative;
-	left:-4px;
-	top:-8px;
-	color:#2B547E;
+  position: relative;
+  left: -4px;
+  top: -8px;
+  color: #253E66;
 }
+
 .second-curly {
-	position: relative;
-	left:4px;
-	top:8px;
-	color:#625D5D;
+  position: relative;
+  left: 4px;
+  top: 8px;
+  color: #EF6555;
+}
+
+td {
+  font-family: monospace;
+  white-space: pre;
 }
