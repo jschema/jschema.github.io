@@ -62,12 +62,6 @@ layout: main
       A number may be a JSON number.
     </p>
 
-    <a name="ref_type">Reference Type</a>
-
-    <p>
-      A reference may be a JSON sub-document satisfying the JSchema found at the referenced URI
-    </p>
-
     <a name="value_type"><h3>"*"</h3></a>
 
     <p>
@@ -97,6 +91,14 @@ layout: main
       interpreted as being null. Additionally, pairs not mentioned in the Struct Type may be present and should be
       preserved.
     </p>
+
+    <a name="ref_type"><h3>Reference Type</h3></a>
+
+    <p>
+        A reference may be a JSON sub-document satisfying the JSchema found at the URI referenced in the value
+        string of the reference pair.
+    </p>
+
   </div>
 
   <div class="col-md-4">
@@ -105,10 +107,10 @@ layout: main
   <pre>
   &lt;type> ::=
     &lt;core_types> |
-    &lt;ref_type> |
     &lt;array_type> |
     &lt;enum_type> |
-    &lt;struct_type>
+    &lt;struct_type> |
+    &lt;ref_type>
 
   <a name="core_type_g">&lt;core_types></a> ::=
     <a href="#string_type">'"@string"'</a> |
@@ -118,9 +120,6 @@ layout: main
     <a href="#integer_type">'"@int"'</a> |
     <a href="#number_type">'"@number"'</a>
     <a href="#value_type">'"*"'</a>
-
-  <a href="#ref_type">&lt;ref_type></a> ::=
-    '{' '"@ref"' ':' &lt;string> '}'
 
   <a href="#array_type">&lt;array_type></a> ::=
     '[' &lt;type> ']'
@@ -137,6 +136,10 @@ layout: main
 
   &lt;prop> ::=
     &lt;string> ':' &lt;type>
+
+  <a href="#ref_type">&lt;ref_type></a> ::=
+    '{' '"@ref"' ':' &lt;string> '}'
+
   </pre>
   </div>
 </div>
