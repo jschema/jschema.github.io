@@ -160,6 +160,20 @@ layout: main
       JSchema files should end with the <code>.jschema</code> file suffix.
     </p>
 
+    <h2>Malformed Schemas</h2>
+
+    <p>
+      To support backwards compatibility for future schemas, any unrecognized part of a JSchema file should be treated
+      as a wildcard, with appropriate warnings.
+    </p>
+
+    <h2>Unspecified Pairs</h2>
+
+    <p>
+      JSchema gives a positive specification of a JSON document.  Any additional JSON pairs not included in the schema
+      should not cause serialization issues and should be preserved.
+    </p>
+
     <h2>Examples</h2>
 
     <table class="examples-table table table-striped">
