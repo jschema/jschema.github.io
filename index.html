@@ -13,7 +13,7 @@ layout: main
     <p>A simple data format demands a simple description mechanism. JSchema satisfies this requirement:</p>
 
     <ul>
-      <li>JSchema is only 7 productions beyond the original JSON grammar</li>
+      <li>JSchema is only 8 productions beyond the original JSON grammar</li>
       <li>JSchema is flexible enough to specify all existing JSON content</li>
       <li>JSchema communicates the structure of the JSON document it describes visually</li>
       <li>It is simple to convert a JSON document into its JSchema</li>
@@ -62,6 +62,12 @@ layout: main
       A number may be a JSON number.
     </p>
 
+    <a name="ref_type">Reference Type</a>
+
+    <p>
+      A reference may be a JSON sub-document satisfying the JSchema found at the referenced URI
+    </p>
+
     <a name="value_type"><h3>"*"</h3></a>
 
     <p>
@@ -99,6 +105,7 @@ layout: main
   <pre>
   &lt;type> ::=
     &lt;core_types> |
+    &lt;ref_type> |
     &lt;array_type> |
     &lt;enum_type> |
     &lt;struct_type>
@@ -111,6 +118,9 @@ layout: main
     <a href="#integer_type">'"@int"'</a> |
     <a href="#number_type">'"@number"'</a>
     <a href="#value_type">'"*"'</a>
+
+  <a href="#ref_type">&lt;ref_type></a> ::=
+    '{' '"@ref"' ':' &lt;string> '}'
 
   <a href="#array_type">&lt;array_type></a> ::=
     '[' &lt;type> ']'
