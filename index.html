@@ -13,7 +13,7 @@ layout: main
     <p>A simple data format demands a simple description mechanism. JSchema satisfies this requirement:</p>
 
     <ul>
-      <li>JSchema is only 8 productions beyond the original JSON grammar</li>
+      <li>JSchema is only 7 productions beyond the original JSON grammar</li>
       <li>JSchema is flexible enough to specify all existing JSON content</li>
       <li>JSchema communicates the structure of the JSON document it describes visually</li>
       <li>It is simple to convert a JSON document into its JSchema</li>
@@ -92,13 +92,6 @@ layout: main
       preserved.
     </p>
 
-    <a name="ref_type"><h3>Reference Type</h3></a>
-
-    <p>
-        A reference may be a JSON sub-document satisfying the JSchema found at the URI referenced in the value
-        string of the reference pair.
-    </p>
-
   </div>
 
   <div class="col-md-4">
@@ -110,7 +103,6 @@ layout: main
     <a href="#array_type_g">&lt;array_type></a> |
     <a href="#enum_type_g">&lt;enum_type></a> |
     <a href="#struct_type_g">&lt;struct_type></a> |
-    <a href="#ref_type_g">&lt;ref_type></a>
 
   <a name="core_type_g">&lt;core_types></a> ::=
     <a href="#string_type">'"@string"'</a> |
@@ -136,9 +128,6 @@ layout: main
 
   <a name="prop_g">&lt;prop></a> ::=
     &lt;string> ':' <a href="#type_type_g">&lt;type></a>
-
-  <a name="ref_type_g" href="#ref_type">&lt;ref_type></a> ::=
-    '{' '"@ref"' ':' &lt;string> '}'
 
   </pre>
   </div>
