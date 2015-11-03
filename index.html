@@ -26,40 +26,41 @@ layout: main
   <div class="col-sm-4">
     <h2>Grammar</h2>
   <pre id="grammar">
-  <a name="type_type_g">&lt;type></a> ::=
-    <a href="#core_type_g">&lt;core_types></a> |
-    <a href="#array_type_g">&lt;array_type></a> |
-    <a href="#enum_type_g">&lt;enum_type></a> |
-    <a href="#struct_type_g">&lt;struct_type></a> |
+<a name="type_type_g">&lt;type></a> ::=
+  <a href="#core_type_g">&lt;core_types></a> |
+  <a href="#array_type_g">&lt;array_type></a> |
+  <a href="#enum_type_g">&lt;enum_type></a> |
+  <a href="#struct_type_g">&lt;struct_type></a> |
 
-  <a name="core_type_g">&lt;core_types></a> ::=
-    <a href="#string_type">'"@string"'</a> |
-    <a href="#boolean_type">'"@boolean"'</a> |
-    <a href="#date_type">'"@date"'</a> |
-    <a href="#uri_type">'"@uri"'</a> |
-    <a href="#integer_type">'"@int"'</a> |
-    <a href="#number_type">'"@number"'</a>
-    <a href="#value_type">'"*"'</a>
+<a name="core_type_g">&lt;core_types></a> ::=
+  <a href="#string_type">'"@string"'</a> |
+  <a href="#boolean_type">'"@boolean"'</a> |
+  <a href="#date_type">'"@date"'</a> |
+  <a href="#uri_type">'"@uri"'</a> |
+  <a href="#integer_type">'"@int"'</a> |
+  <a href="#number_type">'"@number"'</a> |
+  <a href="#value_type">'"*"'</a>
 
-  <a name="array_type_g" href="#array_type">&lt;array_type></a> ::=
-    '[' <a href="#type_type_g">&lt;type></a> ']'
+<a name="array_type_g" href="#array_type">&lt;array_type></a> ::=
+  '[' <a href="#type_type_g">&lt;type></a> ']'
 
-  <a name="enum_type_g" href="#enum_type">&lt;enum_type></a> ::=
-    '[' &lt;string> ',' &lt;string> <a href="#strings_g">&lt;strings></a> ']'
+<a name="enum_type_g" href="#enum_type">&lt;enum_type></a> ::=
+  '[' &lt;string> ','
+      &lt;string> <a href="#strings_g">&lt;strings></a> ']'
 
-  <a name="strings_g">&lt;strings></a> ::=
-    '' |
-    ',' <a>&lt;string></a> <a href="#strings_g">&lt;strings></a>
+<a name="strings_g">&lt;strings></a> ::=
+  '' |
+  ',' &lt;string> <a href="#strings_g">&lt;strings></a>
 
-  <a name="struct_type_g" href="#struct_type">&lt;struct_type></a> ::=
-    '{' <a href="#props_g">&lt;props></a> '}'
+<a name="struct_type_g" href="#struct_type">&lt;struct_type></a> ::=
+  '{' <a href="#props_g">&lt;props></a> '}'
 
-  <a name="props_g">&lt;props></a> ::=
-    <a href="#prop_g">&lt;prop></a> |
-    <a href="#prop_g">&lt;prop></a> ',' <a href="#props_g">&lt;props></a>
+<a name="props_g">&lt;props></a> ::=
+  <a href="#prop_g">&lt;prop></a> |
+  <a href="#prop_g">&lt;prop></a> ',' <a href="#props_g">&lt;props></a>
 
-  <a name="prop_g">&lt;prop></a> ::=
-    &lt;string> ':' <a href="#type_type_g">&lt;type></a>
+<a name="prop_g">&lt;prop></a> ::=
+  &lt;string> ':' <a href="#type_type_g">&lt;type></a>
 
   </pre>
   </div>
