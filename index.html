@@ -13,9 +13,9 @@ layout: main
     <p>A simple data format demands a simple description mechanism. JSchema satisfies this requirement:</p>
 
     <ul>
-      <li>JSchema is only 7 productions beyond the original JSON grammar</li>
-      <li>JSchema is flexible enough to specify all existing JSON content</li>
-      <li>JSchema communicates the structure of the JSON document it describes visually</li>
+      <li>It is only 8 productions beyond the original JSON grammar</li>
+      <li>It is flexible enough to specify most existing JSON content</li>
+      <li>It communicates the structure of the JSON document it describes visually</li>
       <li>It is simple to convert a JSON document into its JSchema</li>
     </ul>
 
@@ -45,7 +45,11 @@ layout: main
     '[' <a href="#type_type_g">&lt;type></a> ']'
 
   <a name="enum_type_g" href="#enum_type">&lt;enum_type></a> ::=
-    '[' &lt;value> ',' &lt;elements> ']'
+    '[' &lt;string> ',' &lt;string> <a href="#strings_g">&lt;strings></a> ']'
+
+  <a name="strings_g">&lt;strings></a> ::=
+    '' |
+    ',' <a>&lt;string></a> <a href="#strings_g">&lt;strings></a>
 
   <a name="struct_type_g" href="#struct_type">&lt;struct_type></a> ::=
     '{' <a href="#props_g">&lt;props></a> '}'
@@ -116,9 +120,8 @@ layout: main
     <a name="enum_type"><h3>Enum Type</h3></a>
 
     <p>
-      An enum, defined in JSchema by an array of more than one JSON value, must have a JSON value from the domain of
-      those
-      values.
+      An enum, defined in JSchema by an array of more than one JSON string in it, must have a JSON value from the domain of
+      those strings.
     </p>
 
     <a name="struct_type"><h3>Struct Type</h3></a>
