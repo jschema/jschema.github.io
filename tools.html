@@ -1,0 +1,51 @@
+---
+layout: main
+---
+
+<br/>
+
+<div class="row">
+  <div class="col-md-12">
+
+    <ul class="nav nav-tabs nav-justified" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#json-to-jschema" aria-controls="home" role="tab" data-toggle="tab">
+          JSON to JSchema Converter
+        </a>
+      </li>
+      <li role="presentation">
+        <a href="#jschema-codegen" aria-controls="profile" role="tab" data-toggle="tab">
+          JSchema Code Generator
+        </a>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+
+      <div role="tabpanel" class="tab-pane active" id="json-to-jschema">
+
+        <h4>Enter JSON Documents</h4>
+        <textarea class="form-control">
+        </textarea>
+        <button class="btn btn-primary">Convert!</button>
+
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="jschema-codegen">
+
+        <h4>Enter JSchema</h4>
+        <textarea class="form-control">
+        </textarea>
+        <h4>Select Target Language</h4>
+        <select>
+          <option>Java 8</option>
+          <option>Javascript</option>
+        </select>
+        <button class="btn btn-primary">Generate!</button>
+
+      </div>
+    </div>
+
+  </div>
+</div>

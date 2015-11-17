@@ -74,3 +74,21 @@ td {
   max-width: 300px;
   font-family: monospace;
 }
+
+.site-nav {
+  padding: 12px;
+  border-bottom: 1px solid #d3d3d3;
+  background-color: #fefefe;
+}
+
+.site-nav div div a {
+  display: inline-block;
+  width: 78px;
+  color: #253E66;
+  font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+}
+
+.site-nav div div a i {
+  color: #b4b4b4;
+}
