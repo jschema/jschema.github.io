@@ -4,6 +4,11 @@ layout: main
 
 <br/>
 
+<script src="js/jschema_to_java.js"></script>
+<script src="js/jschema_to_javascript.js"></script>
+<script src="js/json_to_jschema.js"></script>
+<script src="js/main.js"></script>
+
 <div class="row">
   <div class="col-md-12">
 
@@ -26,23 +31,27 @@ layout: main
       <div role="tabpanel" class="tab-pane active" id="json-to-jschema">
 
         <h4>Enter JSON Documents</h4>
-        <textarea class="form-control">
+        <textarea id="jsonInput" class="form-control">
         </textarea>
-        <button class="btn btn-primary">Convert!</button>
+        <button class="btn btn-primary" onclick="webJSONToJSchema()">Convert!</button>
+        <div id="jsonOutput">
+        </div>
 
       </div>
 
       <div role="tabpanel" class="tab-pane" id="jschema-codegen">
 
         <h4>Enter JSchema</h4>
-        <textarea class="form-control">
+        <textarea id="jschemaInput" class="form-control">
         </textarea>
         <h4>Select Target Language</h4>
         <select>
           <option>Java 8</option>
           <option>Javascript</option>
         </select>
-        <button class="btn btn-primary">Generate!</button>
+        <button class="btn btn-primary" onclick="webJSchemaToJavascript()">Generate!</button>
+        <div id="jschemaOutput">
+        </div>
 
       </div>
     </div>
