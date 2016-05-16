@@ -4,7 +4,6 @@
  */
 var indent="  ";
 var currIndent="        ";
-// TODO: array, enum, struct
 function generateJavascriptForJSchema(jSchema, className) {
   var parseFunction = indent+"parse: function(jsonData){\n" +
                       indent+indent+"var json;\n" +

@@ -40,19 +40,19 @@ layout: main
       </div>
 
       <div role="tabpanel" class="tab-pane" id="jschema-codegen">
-
         <h4>Enter JSchema</h4>
         <textarea id="jschemaInput" class="form-control">
         </textarea>
+        <h4>Enter ClassName</h4>
+        <input type="text" id='className'><br>
         <h4>Select Target Language</h4>
         <select>
           <option>Java 8</option>
           <option>Javascript</option>
         </select>
         <button class="btn btn-primary" onclick="webJSchemaToJavascript()">Generate!</button>
-        <div id="jschemaOutput">
-        </div>
-
+        <textarea id="jschemaOutput" class="form-control">
+        </textarea>
       </div>
     </div>
 
