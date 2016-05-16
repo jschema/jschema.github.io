@@ -56,6 +56,8 @@ function parse(original, preferEnums) {
         // Check if object is an array or standard object
         if (isArray(value)) {
             return parseArray(value, preferEnums);
+        } else if (value == null) {
+            return "*";
         } else {
             return parseMember(value);
         }
@@ -87,7 +89,7 @@ function parseArray(original, preferEnums) {
             type = currentType;
 
             // If preferEnums is true and the array type is an object
-            if (preferEnums && typeof original[i] == "object") {
+            if (preferEnums && typeof original[i] == "object" && !isArray(original[i])) {
                 // Add the arrays for each key associated with a string to `enumValues`
                 for (key in original[i]) {
                     if (currentType[key] == "@string") {
@@ -95,7 +97,7 @@ function parseArray(original, preferEnums) {
                     }
                 }
             }
-        } else if (typeof original[i] == "object") {
+        } else if (typeof original[i] == "object" && !isArray(original[i])) {
             type = commonSchema(type, currentType);
         } else if (equal(type, currentType) == false) {
             return ["*"];
