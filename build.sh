@@ -7,11 +7,6 @@ cd js
 # Clone the jschema-tools repository
 git clone -b master git@github.com:jschema/jschema-tools.git ./jschema-tools -q
 
-# Temporary, this block should be removed before release
-cd jschema-tools
-git checkout javascript -q
-cd ..
-
 # Update jschema_to_java.js
 if [ -f "jschema_to_java.js" ]; then
 	rm jschema_to_java.js
