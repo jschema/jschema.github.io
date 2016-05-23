@@ -33,24 +33,34 @@ layout: main
         <h4>Enter JSON Documents</h4>
         <textarea id="jsonInput" class="form-control">
         </textarea>
-        <button class="btn btn-primary" onclick="webJSONToJSchema()">Convert!</button>
+        <button class="btnGenerate" onclick="webJSONToJSchema()">Convert!</button>
         <div id="jsonOutput">
         </div>
 
       </div>
 
       <div role="tabpanel" class="tab-pane" id="jschema-codegen">
+        <br>
         <h4>Enter JSchema</h4>
         <textarea id="jschemaInput" class="form-control">
         </textarea>
-        <h4>Enter ClassName</h4>
-        <input type="text" id='className'><br>
-        <h4>Select Target Language</h4>
-        <select>
-          <option>Java 8</option>
-          <option>Javascript</option>
-        </select>
-        <button class="btn btn-primary" onclick="webJSchemaToJavascript()">Generate!</button>
+        <table width="100%">
+          <tr>
+            <td>
+            <h4 style="text-align:center">Enter ClassName</h4>
+            <input type="text" id='className' style="width:150px;margin:0;text-align:center;">
+            </td>
+            <td>
+            <h4 style="text-align:center">Select Target Language</h4>
+            <select style="width:150px;margin:0;text-align:center;" id="selectCode">
+              <option>Java 8</option>
+              <option>Javascript</option>
+            </select>
+            </td>
+          </tr>
+        </table>
+          <button class="btnGenerate" onclick="generateCode()">Generate!</button>
+        <h4>Generated Code</h4>
         <textarea id="jschemaOutput" class="form-control">
         </textarea>
       </div>
