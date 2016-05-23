@@ -92,3 +92,41 @@ td {
 .site-nav div div a i {
   color: #b4b4b4;
 }
+
+textarea.form-control{
+    height:400px;
+}
+
+.btnGenerate {
+  margin:0 42%;
+  background: #337ab7;
+  background-image: -webkit-linear-gradient(top, #337ab7, #337ab7);
+  background-image: -moz-linear-gradient(top, #337ab7, #337ab7);
+  background-image: -ms-linear-gradient(top, #337ab7, #337ab7);
+  background-image: -o-linear-gradient(top, #337ab7, #337ab7);
+  background-image: linear-gradient(to bottom, #337ab7, #337ab7);
+  -webkit-border-radius: 16;
+  -moz-border-radius: 16;
+  border-radius: 16px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  border: solid #ffffff 2px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btnGenerate:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+td{
+    white-space:nowrap;
+    text-align:center;
+}
